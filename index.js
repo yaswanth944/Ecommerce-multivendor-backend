@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
 const dotEnv = require("dotenv");
 dotEnv.config(); // Load environment variables
+app.use(cors())
 const mongoose = require("mongoose");
 const vendorRoutes = require("./routes/vendorRoutes");
 
@@ -14,6 +16,7 @@ const port = 4000;
 app.listen(port, () => {
   console.log(`Server started and running at port ${port}`);
 });
+
 
 // Connect to MongoDB
 mongoose
